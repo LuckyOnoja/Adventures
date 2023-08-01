@@ -16,7 +16,7 @@ function next() {
         const cards = post.tv_shows[i];
 
         document.getElementById("containerOne").innerHTML += `
-        <a href="/details?id=${cards.id}">
+        <a href="https://adventures-9x79.onrender.com/details?id=${cards.id}">
         <div class="card">
         <img src="${cards.image_thumbnail_path}" alt="image of ${cards.name}">
         <div class="cardContents">
@@ -50,7 +50,7 @@ function prev() {
           no;
         }
         document.getElementById("containerOne").innerHTML += `
-        <a href="/details?id=${cards.id}">
+        <a href="https://adventures-9x79.onrender.com/details?id=${cards.id}">
         <div class="card">
         <img src="${cards.image_thumbnail_path}" alt="image of ${cards.name}">
         <div class="cardContents">
@@ -93,7 +93,7 @@ const search = () => {
         const cards = post.tv_shows[i];
         no = no + 1;
         document.getElementById("movieSearch").innerHTML += `
-        <a href="/details?id=${cards.id}">
+        <a href="https://adventures-9x79.onrender.com/details?id=${cards.id}">
         <div class="movieSearchItems">
         <img src="${cards.image_thumbnail_path}" alt="${cards.name}">
         <div class="movieSearchItemsContents">
