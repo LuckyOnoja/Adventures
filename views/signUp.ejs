@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADVENTURES</title>
+    <link rel="icon" type="image/png" href="adventLogo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="//unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-select@1.12.4/dist/css/bootstrap-select.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-select-country@4.0.0/dist/css/bootstrap-select-country.min.css"
+        type="text/css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <script src="//unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="//unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="//unpkg.com/bootstrap-select@1.12.4/dist/js/bootstrap-select.min.js"></script>
+    <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
+
+    <style>
+        .page {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            position: relative;
+            height: 80%;
+            min-width: 35%;
+            border: 1px solid green;
+            border-radius: 30px;
+            box-shadow: -3px -3px 20px #504f4f,
+                6px 6px 13px rgba(255, 255, 255, 0.16);
+            background-color: #212121;
+            color: white;
+        }
+
+        .text {
+            position: absolute;
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(4, 188, 4);
+            margin-top: 5px;
+        }
+
+
+        .inp {
+            margin: 20px 5px 20px 30px;
+        }
+
+        input {
+            width: 65%;
+            border-radius: 20px;
+            border: 1px solid blue;
+            padding: 3px 20px;
+            color: black;
+
+        }
+
+        #pswrdChecker {
+            margin-left: -5%;
+            margin-top: 1%;
+        }
+
+        i {
+            color: black;
+            margin-left: -5%;
+            margin-top: 1%;
+        }
+
+        .input {
+            position: relative;
+            width: 100%;
+            margin: 10px 0px -10px 0px;
+            display: flex;
+        }
+
+        .input .inp {
+            margin: 0px 5px 0px 28px;
+        }
+
+        button {
+            background-color: rgb(4, 188, 4);
+            padding: 8px;
+            border-radius: 20px;
+            border: none;
+            width: 30%;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        select {
+            color: #6b6b6b;
+            width: 65%;
+            border-radius: 20px;
+            border: 1px solid blue;
+            padding: 3px 20px;
+        }
+
+        .dropdown-toggle.btn-default {
+            color: #292b2c;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+
+        .bootstrap-select.show>.dropdown-menu>.dropdown-menu {
+            display: block;
+        }
+
+        .bootstrap-select>.dropdown-menu>.dropdown-menu li.hidden {
+            display: none;
+        }
+
+        .bootstrap-select>.dropdown-menu>.dropdown-menu li a {
+            display: block;
+            width: 100%;
+            padding: 3px 1.5rem;
+            clear: both;
+            font-weight: 400;
+            color: #292b2c;
+            text-align: inherit;
+            white-space: nowrap;
+            background: 0 0;
+            border: 0;
+            text-decoration: none;
+        }
+
+        .bootstrap-select>.dropdown-menu>.dropdown-menu li a:hover {
+            background-color: #0d0b0b;
+        }
+
+        .bootstrap-select>.dropdown-toggle {
+            width: 100%;
+        }
+
+        .dropdown-menu>li.active>a {
+            color: #000000 !important;
+            background-color: #337ab7 !important;
+        }
+
+        .bootstrap-select .check-mark {
+            line-height: 14px;
+        }
+
+        .bootstrap-select .check-mark::after {
+            font-family: "FontAwesome";
+            content: "\f00c";
+        }
+
+        .bootstrap-select button {
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Make filled out selects be the same size as empty selects */
+        .bootstrap-select.btn-group .dropdown-toggle .filter-option {
+            display: inline !important;
+        }
+
+        a {
+            color: rgb(10, 136, 215);
+
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+        
+        .errMessage {
+            position: absolute;
+            bottom: -2%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            padding: 10px;
+
+        }
+
+        .errMessage h1 {
+            font-size: 3px;
+        }
+    </style>
+</head>
+
+<body style="background-color: black;">
+    <div class="page">
+
+        <form action="/signUp" method="post">
+
+            <div class="text">
+                <h1>ADVENTURES</h1>
+            </div>
+
+            <label style="margin-top: 15vh;" class="inp" for="name">Name :</label>
+            <input type="text" name="name" placeholder="Mark Scholtz">
+            <br>
+            <label class="inp" for="email">Email:</label>
+            <input type="email" name="email" placeholder="MarkScholtz@adventures.com">
+            <br>
+
+            <div class="input">
+                <label class="inp" for="password">Password:</label>
+                <!-- note you have to adjustr the sixe in suface pro 7 , samsung galxy a51/71, pixel5-->
+                <input id="pswrd" name="password" style="width: 60%; " type="password" placeholder="Password">
+                <div id="pswrdChecker"><i onmouseenter="check()" id="pscheckone" class="bi bi-eye-slash-fill"></i></div>
+            </div>
+
+            <br>
+            <label class="inp" for="phoneNumber">Phone:</label>
+            <input type="text" name="phoneNumber" placeholder="000 0000 000">
+            <br>
+            <label class="inp">Country:</label>
+            <select type="text" name="country" class="countrypicker"></select>
+            <br>
+            <div class="text">
+                <button type="submit">sign up</button>
+            </div>
+            <div class="text" style="margin-top: 8vh;color: whitesmoke;">
+                <h5 style="font-style: oblique;font-size: 11px;font-family: Georgia, 'Times New Roman', Times, serif;">
+                    already have an acc ? <a style="font-style: normal;" href="signIn">sign in</a></h5>
+            </div>
+            <div class="errMessage">
+                <% if (typeof error !=='undefined' ) { %>
+                    <h6>
+                        <%= error %>
+                    </h6>
+                    <% } %>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script>
+
+        function check() {
+            const pass = document.getElementById('pswrd');
+            const icon = document.getElementById('pswrdChecker');
+
+            if (pass.type === "password") {
+                pass.type = "text";
+                icon.innerHTML = '<i onmouseleave="check()" id="pscheckone" class="bi bi-eye-fill"></i>'
+            }
+            else {
+                pass.type = "password";
+                icon.innerHTML = '<i onmouseenter="check()" id="pscheckone" class="bi bi-eye-slash-fill"></i>'
+            }
+        }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script>
+        $('.countrypicker').countrypicker();
+    </script>
+
+</body>
+
+</html>
